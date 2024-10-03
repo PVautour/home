@@ -34,8 +34,11 @@
     pkgs.nodejs_22
     pkgs.nodePackages.vscode-langservers-extracted
     pkgs.nodePackages.typescript-language-server
-    pkgs.pywal
     pkgs.nixfmt-rfc-style
+    pkgs.nerdfonts
+    pkgs.pywal
+    pkgs.zoxide
+    pkgs.starship
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -132,10 +135,12 @@
     ];
   };
 
-  # wal --theme base16-greenscreen'
-  programs.bash.enable = true;
-  programs.zoxide.enable = true;
-  programs.starship.enable = true;
+  programs.bash = {
+    enable = true;
+    bashrcExtra = ''
+      wal --theme base16-greenscreen
+    '';
+  };
 
   home.shellAliases = {
     cd = "z";

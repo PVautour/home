@@ -22,7 +22,6 @@
     # # "Hello, world!" when run.
     pkgs.hello
     pkgs.eza
-    pkgs.zoxide
     pkgs.fzf
     pkgs.git
     pkgs.openssh
@@ -37,8 +36,8 @@
     pkgs.nixfmt-rfc-style
     pkgs.nerdfonts
     pkgs.pywal
-    pkgs.zoxide
     pkgs.starship
+    pkgs.npm-check-updates
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -135,16 +134,22 @@
     ];
   };
 
+  programs.zoxide = {
+    enable = true;
+    options = [
+      "--cmd cd"
+    ];
+  };
+
   programs.bash = {
     enable = true;
     bashrcExtra = ''
       wal --theme base16-greenscreen
+      . /home/pv/.nix-profile/etc/profile.d/nix.sh
     '';
   };
 
   home.shellAliases = {
-    cd = "z";
-    cdi = "zi";
     ls = "exa";
     t = "erd";
     hs = "home-manager switch";

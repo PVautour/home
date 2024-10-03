@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
-
 {
+  targets.genericLinux.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "pv";
@@ -117,6 +117,31 @@
         name = "html";
         auto-format = true;
       }
+      {
+        name = "json";
+        auto-format = true;
+      }
+      {
+        name = "typescript";
+        auto-format = true;
+      }
+      {
+        name = "javascript";
+        auto-format = true;
+      }
     ];
+  };
+
+  # wal --theme base16-greenscreen'
+  programs.bash.enable = true;
+  programs.zoxide.enable = true;
+  programs.starship.enable = true;
+
+  home.shellAliases = {
+    cd = "z";
+    cdi = "zi";
+    ls = "exa";
+    t = "erd";
+    hs = "home-manager switch";
   };
 }

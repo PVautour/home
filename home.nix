@@ -138,7 +138,12 @@
     ];
   };
 
-  #      . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true; # see note on other shells below
+    nix-direnv.enable = true;
+  };
+
   programs.bash = {
     enable = true;
     bashrcExtra = ''
@@ -152,6 +157,7 @@
     ls = "exa";
     t = "erd";
     hs = "home-manager switch";
+    hc = "hx ${config.home.homeDirectory}/.config/home-manager/home.nix";
     td = "hx /mnt/c/Users/pvautour/Documents/Work/todo/todo.md";
     sc = "hx /mnt/c/Users/pvautour/Documents/Work/todo/scratchpad.md";
     mn = "hx /mnt/c/Users/pvautour/Documents/Work/todo/meeting-notes.md";

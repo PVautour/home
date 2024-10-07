@@ -153,5 +153,8 @@
     ls = "exa";
     t = "erd";
     hs = "home-manager switch";
+    td = "hx /mnt/c/Users/pvautour/Documents/Work/todo/todo.md";
+    sc = "hx /mnt/c/Users/pvautour/Documents/Work/todo/scratchpad.md";
+    mn = "hx /mnt/c/Users/pvautour/Documents/Work/todo/meeting-notes.md";
   };
 }

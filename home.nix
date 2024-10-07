@@ -20,23 +20,20 @@
   home.packages = [
     # # Adds the "hello" command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    pkgs.hello
     pkgs.eza
     pkgs.fzf
     pkgs.git
     pkgs.openssh
     pkgs.zip
-    # pkgs.nodejs_22
     pkgs.ripgrep
     pkgs.awscli2
     pkgs.erdtree
-    pkgs.nodejs_22
-    pkgs.nodePackages.vscode-langservers-extracted
-    pkgs.nodePackages.typescript-language-server
     pkgs.nixfmt-rfc-style
     pkgs.nerdfonts
     pkgs.pywal
     pkgs.starship
+    pkgs.nodePackages.vscode-langservers-extracted
+    pkgs.nodePackages.typescript-language-server
     pkgs.npm-check-updates
 
     # # It is sometimes useful to fine-tune packages, for example, by applying

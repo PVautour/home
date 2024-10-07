@@ -141,11 +141,13 @@
     ];
   };
 
+  #      . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh
   programs.bash = {
     enable = true;
     bashrcExtra = ''
-      wal --theme base16-greenscreen
-      . /home/pv/.nix-profile/etc/profile.d/nix.sh
+      if [ -e ${config.home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh ]; then . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+      . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+      wal --theme base16-greenscreen >> /dev/null
     '';
   };
 

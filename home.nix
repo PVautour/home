@@ -153,6 +153,11 @@
     '';
   };
 
+  programs.bat = {
+    enable = true;
+    config.theme = "base16";
+  };
+
   home.shellAliases = {
     ls = "exa";
     t = "erd";
@@ -161,5 +166,6 @@
     td = "hx /mnt/c/Users/pvautour/Documents/Work/todo/todo.md";
     sc = "hx /mnt/c/Users/pvautour/Documents/Work/todo/scratchpad.md";
     mn = "hx /mnt/c/Users/pvautour/Documents/Work/todo/meeting-notes.md";
+    cat = "bat";
   };
 }

@@ -88,76 +88,77 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  programs.helix = {
-    enable = true;
-    settings = {
-      theme = "base16_transparent";
-      editor.cursor-shape = {
-        normal = "block";
-        insert = "bar";
+  programs = {
+    helix = {
+      enable = true;
+      settings = {
+        theme = "base16_transparent";
+        editor.cursor-shape = {
+          normal = "block";
+          insert = "bar";
+        };
+        editor.soft-wrap.enable = true;
+        editor.bufferline = "multiple";
+        keys.normal = {
+          space.c = ":buffer-close";
+          space.C = ":buffer-close!";
+          space.l = ":toggle soft-wrap.enable";
+          space.f = "file_picker_in_current_directory";
+          space.F = "file_picker";
+        };
       };
-      editor.soft-wrap.enable = true;
-      editor.bufferline = "multiple";
-      keys.normal = {
-        space.c = ":buffer-close";
-        space.C = ":buffer-close!";
-        space.l = ":toggle soft-wrap.enable";
-        space.f = "file_picker_in_current_directory";
-        space.F = "file_picker";
-      };
+      languages.language = [
+        {
+          name = "nix";
+          auto-format = true;
+          formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
+        }
+        {
+          name = "html";
+          auto-format = true;
+        }
+        {
+          name = "json";
+          auto-format = true;
+        }
+        {
+          name = "typescript";
+          auto-format = true;
+        }
+        {
+          name = "javascript";
+          auto-format = true;
+        }
+      ];
     };
-    languages.language = [
-      {
-        name = "nix";
-        auto-format = true;
-        formatter.command = "${pkgs.nixfmt-rfc-style}/bin/nixfmt";
-      }
-      {
-        name = "html";
-        auto-format = true;
-      }
-      {
-        name = "json";
-        auto-format = true;
-      }
-      {
-        name = "typescript";
-        auto-format = true;
-      }
-      {
-        name = "javascript";
-        auto-format = true;
-      }
-    ];
-  };
 
-  programs.zoxide = {
-    enable = true;
-    options = [
-      "--cmd cd"
-    ];
-  };
+    zoxide = {
+      enable = true;
+      options = [
+        "--cmd cd"
+      ];
+    };
 
-  programs.direnv = {
-    enable = true;
-    enableBashIntegration = true; # see note on other shells below
-    nix-direnv.enable = true;
-  };
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
 
-  programs.bash = {
-    enable = true;
-    bashrcExtra = ''
-      if [ -e ${config.home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh ]; then . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-      . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
-      wal --theme base16-greenscreen >> /dev/null
-    '';
-  };
+    bash = {
+      enable = true;
+      bashrcExtra = ''
+        if [ -e ${config.home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh ]; then . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+        . "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+        wal --theme base16-greenscreen >> /dev/null
+      '';
+    };
 
-  programs.bat = {
-    enable = true;
-    config.theme = "base16";
+    bat = {
+      enable = true;
+      config.theme = "base16";
+    };
   };
-
   home.shellAliases = {
     ls = "exa";
     t = "erd";

@@ -82,7 +82,7 @@
   #  /etc/profiles/per-user/pv/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "helix";
+    EDITOR = "hx";
   };
 
   # Let Home Manager install and manage itself.
@@ -134,9 +134,7 @@
 
     zoxide = {
       enable = true;
-      options = [
-        "--cmd cd"
-      ];
+      options = [ "--cmd cd" ];
     };
 
     direnv = {
@@ -158,11 +156,16 @@
       enable = true;
       config.theme = "base16";
     };
+
+    git = {
+      enable = true;
+    };
   };
+
   home.shellAliases = {
     ls = "exa";
     t = "erd";
-    hs = "home-manager switch";
+    hs = "home-manager switch --flake ~/.config/home-manager#pv";
     hc = "hx ${config.home.homeDirectory}/.config/home-manager/home.nix";
     td = "hx /mnt/c/Users/pvautour/Documents/Work/todo/todo.md";
     sc = "hx /mnt/c/Users/pvautour/Documents/Work/todo/scratchpad.md";

@@ -164,9 +164,9 @@
 
   home.shellAliases = {
     ls = "exa";
-    t = "${config.home.homeDirectory}/.config/home-manager/scripts/erd.sh";
+    t = "~/.config/home-manager/scripts/erd.sh";
     hs = "home-manager switch --flake ~/.config/home-manager#pv";
-    hc = "hx ${config.home.homeDirectory}/.config/home-manager/home.nix";
+    hc = "hx ~/.config/home-manager/home.nix";
     td = "hx /mnt/c/Users/pvautour/Documents/Work/todo/todo.md";
     sc = "hx /mnt/c/Users/pvautour/Documents/Work/todo/scratchpad.md";
     mn = "hx /mnt/c/Users/pvautour/Documents/Work/todo/meeting-notes.md";

@@ -34,7 +34,6 @@
     pkgs.starship
     pkgs.nodePackages.vscode-langservers-extracted
     pkgs.nodePackages.typescript-language-server
-    pkgs.npm-check-updates
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -159,6 +158,12 @@
 
     git = {
       enable = true;
+      userName = "Pascal Vautour";
+      userEmail = "vautour.pascal@gmail.com";
+
+      extraConfig = {
+        push.autoSetupRemote = "true";
+      };
     };
   };
 

@@ -31,7 +31,6 @@
     pkgs.nixfmt-rfc-style
     pkgs.nerdfonts
     pkgs.pywal
-    pkgs.starship
     pkgs.nodePackages.vscode-langservers-extracted
     pkgs.nodePackages.typescript-language-server
 
@@ -82,12 +81,18 @@
   #
   home.sessionVariables = {
     EDITOR = "hx";
+    TERMINAL = "bash";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
   programs = {
+
+    starship = {
+      enable = true;
+    };
+
     helix = {
       enable = true;
       settings = {

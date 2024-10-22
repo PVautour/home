@@ -31,6 +31,8 @@
     pkgs.nixfmt-rfc-style
     pkgs.nerdfonts
     pkgs.pywal
+    #    pkgs.carapace  # todo: see if valuable and configure
+    pkgs.nushell
     pkgs.nodePackages.vscode-langservers-extracted
     pkgs.nodePackages.typescript-language-server
 

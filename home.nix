@@ -21,6 +21,7 @@
     # # Adds the "hello" command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     pkgs.eza
+    pkgs.manix
     pkgs.fzf
     pkgs.git
     pkgs.openssh
@@ -82,7 +83,6 @@
   #  /etc/profiles/per-user/pv/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    EDITOR = "hx";
     TERMINAL = "bash";
   };
 
@@ -97,6 +97,7 @@
 
     helix = {
       enable = true;
+      defaultEditor = true;
       settings = {
         theme = "base16_transparent";
         editor.cursor-shape = {

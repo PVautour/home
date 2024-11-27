@@ -18,24 +18,25 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    # # Adds the "hello" command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
+
+    pkgs.awscli2
+    #    pkgs.carapace  # todo: see if valuable and configure
+    pkgs.difftastic
+    pkgs.erdtree
     pkgs.eza
-    pkgs.manix
     pkgs.fzf
     pkgs.git
-    pkgs.openssh
-    pkgs.zip
-    pkgs.ripgrep
-    pkgs.awscli2
-    pkgs.erdtree
-    pkgs.nixfmt-rfc-style
+    pkgs.manix
     pkgs.nerdfonts
-    pkgs.pywal
-    #    pkgs.carapace  # todo: see if valuable and configure
-    pkgs.nushell
-    pkgs.nodePackages.vscode-langservers-extracted
+    pkgs.nixfmt-rfc-style
+    # Language servers for helix
     pkgs.nodePackages.typescript-language-server
+    pkgs.nodePackages.vscode-langservers-extracted
+    pkgs.nodePackages.serve
+    pkgs.openssh
+    pkgs.pywal
+    pkgs.ripgrep
+    pkgs.zip
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -83,7 +84,7 @@
   #  /etc/profiles/per-user/pv/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    TERMINAL = "bash";
+    TERMINAL = "nushell";
   };
 
   # Let Home Manager install and manage itself.
@@ -173,11 +174,16 @@
         push.autoSetupRemote = "true";
       };
     };
+
+    nushell = {
+      enable = true;
+    };
   };
 
   home.shellAliases = {
     ls = "exa";
     t = "~/.config/home-manager/scripts/erd.sh";
+    make-it-dev = "~/.config/home-manager/scripts/make-it-dev.sh";
     hs = "home-manager switch --flake ~/.config/home-manager#pv";
     hc = "hx ~/.config/home-manager/home.nix";
     td = "hx /mnt/c/Users/pvautour/Documents/Work/todo/todo.md";
